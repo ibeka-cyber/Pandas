@@ -23,7 +23,7 @@ import numpy as np
 pd.set_option("display.max_columns",None)
 pd.set_option("display.width",500)
 df=pd.read_excel("C:/Users/iremb/Desktop/projeler/gezinomi_tanıtım/miuul_gezinomi.xlsx")
-df.shape()
+df.shape
 df.info
 df.head()
 
@@ -111,7 +111,8 @@ n=agg_df.groupby("Segment").agg({"Price":["mean","max","sum"]})
 #############################################
 agg_df.sort_values("Price")
 z=agg_df[agg_df["sales_level_based"]=="ANTALYA_HERŞEY DAHIL_HIGH"]["Price"].mean()
-x=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSİYON_LOW"]["Price"].mean()
+x=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSIYON_LOW"]["Price"].mean()
+y=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSIYON_LOW"]
 
 
 
