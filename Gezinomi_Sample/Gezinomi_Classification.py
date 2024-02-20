@@ -22,7 +22,7 @@ import pandas as pd
 import numpy as np
 pd.set_option("display.max_columns",None)
 pd.set_option("display.width",500)
-df=pd.read_excel("C:/Users/iremb/Desktop/projeler/gezinomi_tanıtım/miuul_gezinomi.xlsx")
+df=pd.read_excel("miuul_gezinomi.xlsx")
 df.shape
 df.info
 df.head()
@@ -56,7 +56,8 @@ j=df.groupby(["SaleCityName","ConceptName"])["Price"].mean() #2.yol
 #############################################
 # GÖREV 2: satis_checkin_day_diff değişkenini EB_Score adında yeni bir kategorik değişkene çeviriniz.
 #############################################
-df["EB_score"]= pd.cut((df["CheckInDate"]-df["SaleDate"]).dt.days,bins=[0, 7, 30, 90, float('inf')],
+df["EB_score"]= pd.cut((df["CheckInDate"]-df["SaleDate"]).dt.days,
+                       bins=[0, 7, 30, 90, float('inf')],
                                labels=["Last Minuters", "Potential Planners", "Planners", "Early Bookers"],
                                right=False)
 
@@ -112,7 +113,7 @@ n=agg_df.groupby("Segment").agg({"Price":["mean","max","sum"]})
 agg_df.sort_values("Price")
 z=agg_df[agg_df["sales_level_based"]=="ANTALYA_HERŞEY DAHIL_HIGH"]["Price"].mean()
 x=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSIYON_LOW"]["Price"].mean()
-y=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSIYON_LOW"]
+y=agg_df[agg_df["sales_level_based"]=="GIRNE_YARIM PANSIYON_LOW"]["Segment"]
 
 
 
